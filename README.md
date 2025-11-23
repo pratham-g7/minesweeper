@@ -67,5 +67,5 @@ Zero tiles (`0`) automatically reveal surrounding tiles recursively.
 
 ## 🚀 Running the Game
 
-1. Install Python 3  
-2. Clone the repo:
+1. Install the executable provided, and run it.
+2. Clone the repo and run `minesweeper.py`
