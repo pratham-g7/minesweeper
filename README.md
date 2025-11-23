@@ -1,19 +1,19 @@
-🧨 Minesweeper (Python CLI)
- . A clean and fully playable command-line Minesweeper game built in Python.
- . Features classic mechanics — safe first click, recursive flood-fill reveal, adjustable board sizes, difficulty settings, and save/load support.
-
-🎮 Features
-✔ Classic Minesweeper gameplay
-✔ Safe first click (bombs only generate after first move)
-✔ Recursive flood-fill revealing of empty cells
-✔ Selectable difficulty levels
- . Easy
- . Medium
- . Hard
- . Secret Mode
-✔ Save & Load game system
-✔ Clean CLI rendering of board
-✔ Modular code structure
+🧨 Minesweeper (Python CLI)  
+ . A clean and fully playable command-line Minesweeper game built in Python.  
+ . Features classic mechanics — safe first click, recursive flood-fill reveal, adjustable board sizes, difficulty settings, and save/load support.  
+  
+🎮 Features  
+✔ Classic Minesweeper gameplay  
+✔ Safe first click (bombs only generate after first move)  
+✔ Recursive flood-fill revealing of empty cells  
+✔ Selectable difficulty levels  
+ . Easy  
+ . Medium  
+ . Hard  
+ . Secret Mode  
+✔ Save & Load game system  
+✔ Clean CLI rendering of board  
+✔ Modular code structure  
 
 🧠 How It Works
 🔹 Board Generation
