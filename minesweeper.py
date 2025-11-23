@@ -14,7 +14,7 @@ def minesweeper():
                 if mt.saved:
                     del_save(mt.code, mt.save_location)
                 return False
-            else:
+            else: 
                 return True
         else:
             print("Invalid Position.")
