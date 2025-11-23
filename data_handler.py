@@ -44,6 +44,6 @@ def del_save(r_code, save_path):
             except EOFError:
                 break
         b_data = [b for b in b_data if r_code not in list(b.keys())]
-        saves.truncate(0)
+        saves.truncate(0) 
         for i in b_data:
             dump(i, saves)
