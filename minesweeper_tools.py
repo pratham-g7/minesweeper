@@ -38,9 +38,11 @@ def apply_point_check(board: list, dim: list):
     return new_board
     
 
-def create_board(dimensions: list = [3, 3], ignore: list = []):
+def create_board(dimensions: list = [3, 3], ignore: list = [], std=False):
     x, y = int(dimensions[0]), int(dimensions[1])
     GRID = [["📦" for j in range(y)] for i in range(x)]
+    if std:
+        return GRID, []
     ANS_GRID = [[choice(["💣", "$ ", "$ ", "$ ", "$ "]) for j in range(y)] for i in range(x)]
     if ignore:
         ANS_GRID[int(ignore[0])-1][int(ignore[1])-1] = "$ "

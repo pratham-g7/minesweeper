@@ -53,6 +53,7 @@ Choose your difficulty:
         dim = mt.difficulty[option].split("x")
         dim = [int(i) for i in dim]
         ani.prints((mt.begin.format(mt.options[option]) if loaded_data == None else "Loading your save..."))
+        mt.display(mt.create_board(dim, std=True)[0], dim)
         ignore = input("Enter dim(x,y): ").split(",")
         while not mt.valid_pos(ignore, dim):
             print("Invalid Position, Try Again.")
