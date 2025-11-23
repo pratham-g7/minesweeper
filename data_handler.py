@@ -13,7 +13,7 @@ def save_data(data: list, save_path, code=None):
     return code
 
 
-def load_data(cd: str, save_path):
+def load_data(save_path, cd: str = ""):
     global saved
     global code
     data = []
@@ -26,6 +26,8 @@ def load_data(cd: str, save_path):
                 break
             except UnpicklingError:
                 break
+        if not cd:
+            return data
     for save in data:
         if cd in list(save.keys()):
             saved = True

@@ -135,12 +135,29 @@ def check_square(board, ans, index: list, bomb_locations, dim):
         print("This square has already been revealed!")
         return True
 
+def list_rooms():
+    rooms = load_data(save_location)
+    if isinstance(rooms, list):
+        for ind, room in enumerate(rooms):
+            room_key = list(room.keys())[0]
+            print("<-------------------------------->")
+            print(
+f"""Room #{ind + 1}:  
+Room Code: {room_key}
+Score: {get_pts(room[room_key][0])}
+<-------------------------------->
+""")  
+
 def start():
     global code
     ani.prints(intro)
     load_old_game = input("Would you like to load a previous game? (y/n)\n")
     if load_old_game.lower() == "y":
-        exists, dat = load_data(code := input("Enter the room code: "), save_location)
+        cd = input("Enter the room code, or LIST to view all rooms: ")
+        if cd.upper() == "LIST":
+            list_rooms()
+            cd = input("Enter the room code: ")
+        exists, dat = load_data(save_location, code := cd)
         while not exists:
             retry = input("This code is invalid, would you like to start a new game or re-enter? (y/n/r)\n")
             if retry.lower() == "n":
@@ -148,7 +165,11 @@ def start():
             elif retry.lower() == "y":
                 return None
             else:
-                exists, dat = load_data(code := input("Enter the room code: "), save_location)
+                cd = input("Enter the room code, or LIST to view all rooms: ")
+                if cd.upper() == "LIST":
+                    list_rooms()
+                    cd = input("Enter the room code: ")
+                exists, dat = load_data(save_location, code := cd)
         return dat
     elif load_old_game.lower() == "n":
         return None
