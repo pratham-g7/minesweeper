@@ -1,80 +1,71 @@
-💣 Minesweeper – Python Terminal Edition
+# 💣 Minesweeper – Terminal-Based Puzzle Game
 
-Minesweeper is a fully interactive command-line implementation of the classic puzzle game — complete with recursive flood-fill reveal, difficulty levels, first-click safety, and even save/load support using JSON/pickle.
+A clean and fully playable **Minesweeper** game built in Python, running directly in the terminal.  
+Features zero-adjacent auto-reveal (flood fill), safe first click, save/load system, and difficulty presets.
 
-A simple, fast, and cross-platform Python version of one of the most iconic logic games ever made.
+---
 
-🔧 Tech Stack
+## 🔧 Tech Stack
 
-Language: Python
+- **Language:** Python 3  
+- **Core Logic:** Recursion (Flood Fill), Board Generation, Input Validation  
+- **Data Handling:** `pickle` for save/load system  
+- **Utils:** `pathlib` for cross-platform save directory  
 
-Libraries:
+---
 
-random – bomb placement
+## ✨ Features
 
-pickle – game saving/loading
+- 🎮 **Fully playable Minesweeper in terminal**  
+- 💥 **Smart bomb generation** (generated after first safe click)  
+- 🔍 **Auto-reveal flood fill** for zero tiles  
+- 💾 **Save & load game** using generated room codes  
+- 📊 **Difficulty presets** (Easy, Medium, Hard, ???)  
+- 📂 **Cross-platform save directory** using the user's Documents folder  
+- 🧹 **Clean board rendering** with emoji tiles  
+- 🛡️ **Input validation** to prevent invalid moves  
+- 🧠 **Accurate number generation** based on adjacent bombs  
 
-pathlib – platform-safe file handling
+---
 
-time – animations
+## 📁 Project Structure
+<pre>
+  minesweeper/
+├── animation_handler.py # Typing animations and UI effects
+├── data_handler.py # Save/load logic using pickle
+├── minesweeper_tools.py # Core game logic (board, flood fill, win/loss)
+├── main.py # Entry point (difficulty, main game loop)
+├── saves/ # (Old) save folder before using Path.home()
+└── README.md
+</pre>
 
-Executable: Supports PyInstaller build
+---
 
-✨ Features
+## 🧩 How It Works
 
-🎮 Classic Minesweeper mechanics (bombs, numbers, flood-fill zeros)
+### 🎲 Board Generation
+- Creates an empty visible grid (`📦`)  
+- Bombs are generated **only after the first click**  
+- Numbers on tiles represent nearby bombs (0–8)
 
-🏃 Smooth recursive reveal of all connected empty spaces
+### 🌊 Flood Fill Reveal  
+Zero tiles (`0`) automatically reveal surrounding tiles recursively.
 
-💾 Save & load game state (persistent across sessions)
+### ⚙️ Game Loop
+- Display grid  
+- Ask for coordinates  
+- Reveal tile / trigger flood fill  
+- Check win/lose conditions  
+- Continue or terminate  
 
-⚙️ Difficulty levels (Easy, Medium, Hard, ??? mode)
+### 💾 Save System
+- Game state stored as `.dat` using `pickle`  
+- Automatically creates folder and file if missing  
+- You get a unique 6-char code when saving  
 
-🛡️ First-click bomb protection (board generates after first click)
+---
 
-📁 Automatic save folder creation with Path.home()
+## 🚀 Running the Game
 
-🖥️ Clean terminal UI with emoji grid (📦, 💣, 0, numbers)
-
-📁 Project Structure
-<pre> minesweeper/ ├── main.py # Game loop & difficulty menu ├── minesweeper_tools.py # Core logic (board gen, flood fill, reveal) ├── data_handler.py # Saving & loading (pickle) ├── animation_handler.py # Optional animations / printing effects ├── README.md # This file └── <generated> minesweeper_saves/ └── minesweeper.dat # Auto-created save file </pre>
-🧠 Game Logic Overview
-🔹 Board Creation
-
-Generates an empty grid (📦)
-
-Places bombs randomly
-
-Computes adjacent bomb counts for all safe cells
-
-🔹 First Click Handling
-
-If the first chosen cell is a bomb:
-
-A fresh board is regenerated
-
-Ensures the first click is always safe
-
-🔹 Number Assignment
-
-Iterates through each tile
-
-Counts bombs in the 8-tile neighborhood
-
-Writes 1, 2, 3, or "0 " accordingly
-
-🔹 Flood Fill Reveal
-
-Recursive expansion when player clicks a zero
-
-Reveals:
-
-the zero cell
-
-all surrounding cells
-
-continues until edges are reached
-
-🔹 Win/Loss Conditions
-
-Lose: you uncover a bomb → all bombs revealed
+1. Install Python 3  
+2. Clone the repo:
